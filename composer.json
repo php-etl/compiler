@@ -1,0 +1,59 @@
+{
+    "name": "php-etl/csv-plugin",
+    "description": "Plugins for CSV Extractor and Loader",
+    "type": "gyroscops-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Grégory Planchat",
+            "email": "gregory@kiboko.fr"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": "^8.2",
+        "ext-json": "*",
+        "nikic/php-parser": "^4.10",
+        "symfony/config": "^6.0",
+        "php-etl/configurator-contracts": "0.8.*",
+        "symfony/expression-language": "^6.0",
+        "php-etl/packaging-contracts": "0.3.*",
+        "php-etl/satellite-toolbox": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.0",
+        "php-etl/phpunit-extension": "*",
+        "friendsofphp/php-cs-fixer": "^3.0",
+        "phpstan/phpstan": "^1.10",
+        "infection/infection": "^0.26.18",
+        "rector/rector": "^0.15",
+        "php-etl/csv-flow": "*",
+        "mikey179/vfsstream": "^1.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Kiboko\\Plugin\\CSV\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "functional\\Kiboko\\Plugin\\CSV\\": "tests/functional/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "0.6.x-dev"
+        },
+        "gyroscops": {
+            "plugins": ["Kiboko\\Plugin\\CSV\\Service"]
+        }
+    },
+    "config": {
+        "bin-dir": "bin",
+        "allow-plugins": {
+            "infection/extension-installer": true,
+            "php-http/discovery": true
+        }
+    }
+}
