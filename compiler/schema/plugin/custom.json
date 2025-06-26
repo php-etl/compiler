@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/php-etl/satellite/master/schema/plugin/custom.json",
+  "title": "Custom Code plugin for Middleware Satellite",
+  "description": "A Satellite is a micro-service aimed at managing data pipelines and data processing",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "expression_language": { "$ref": "https://raw.githubusercontent.com/php-etl/satellite/master/schema/definitions.json#/$defs/expression_language" },
+    "extractor": {
+      "type": "object"
+    },
+    "transformer": {
+      "type": "object"
+    },
+    "loader": {
+      "type": "object",
+      "properties": {
+        "use": { "type": "string" },
+        "services": {
+          "type": "object",
+          "patternProperties": {
+            ".*": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}

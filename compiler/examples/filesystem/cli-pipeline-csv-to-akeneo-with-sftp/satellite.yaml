@@ -1,0 +1,94 @@
+satellite:
+#  docker:
+#    from: php:8.0-cli-alpine
+#    workdir: /var/www/html
+#    tags:
+#      - kiboko/satellite:akeneo-to-sylius
+  filesystem:
+    path: build/
+  pipeline:
+    steps:
+    - csv:
+        extractor:
+          file_path: 'foo.csv'
+      logger:
+        channel: pipeline
+        destinations:
+          - elasticsearch:
+              level: warning
+              hosts:
+                - elasticsearch.example.com:9200
+    - fastmap:
+        map:
+        - field: '[identifier]'
+          copy: '[sku]'
+        - field: '[values]'
+          expression: 'input'
+          map:
+          - field: '[name]'
+            expression: '[ { name: input["name"], locale: null, scope: null } ]'
+      logger:
+        channel: pipeline
+        destinations:
+          - elasticsearch:
+              level: warning
+              hosts:
+                - elasticsearch.example.com:9200
+      rejection:
+        destinations:
+          - kafka:
+              brokers:
+                - 'kafka.example.com:3200'
+              topics:
+                - 'lorem.ipsum'
+          - rabbitmq:
+              servers:
+                - host: 'rabbitmq.example.com'
+                  port: '1234'
+                  vhost: '/'
+              channels:
+                - 'lorem.ipsum'
+      state:
+        destinations:
+          - redis:
+              servers:
+                - host: 'redis.example.com'
+                  port: '1234'
+                  dbindex: 1
+                  timeout: 100
+          - memcached:
+              servers:
+                - host: 'memcached.example.com'
+                  port: '1234'
+                  timeout: 100
+    - akeneo:
+        enterprise: true
+        extractor:
+          type: product
+          method: all
+          search:
+            - { field: enabled, operator: '=', value: true }
+            - { field: completeness, operator: '=', value: 100, scope: ecommerce }
+        client:
+          api_url: '@=env("AKENEO_URL")'
+          client_id: '@=env("AKENEO_CLIENT_ID")'
+          secret: '@=env("AKENEO_CLIENT_SECRET")'
+          username: '@=env("AKENEO_USERNAME")'
+          password: '@=env("AKENEO_PASSWORD")'
+      logger:
+        channel: pipeline
+        destinations:
+          - elasticsearch:
+              level: warning
+              hosts:
+                - elasticsearch.example.com:9200
+    - stream:
+        loader:
+          destination: stderr
+      logger:
+        channel: pipeline
+        destinations:
+          - elasticsearch:
+              level: warning
+              hosts:
+                - elasticsearch.example.com:9200

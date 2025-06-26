@@ -1,0 +1,14 @@
+satellite:
+  filesystem:
+    path: 'build/'
+  pipeline:
+    steps:
+      - csv:
+          extractor:
+            file_path: 'data/products.csv'
+
+      - stream:
+          loader:
+            destination: 'stderr'
+            format: 'json'
+

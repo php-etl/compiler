@@ -1,0 +1,31 @@
+#!/usr/bin/env php
+<?php
+
+if (file_exists(getcwd() . '/vendor/autoload.php')) {
+    require getcwd() . '/vendor/autoload.php';
+} else if (file_exists(__DIR__ . '/../../../../vendor/autoload.php')) {
+    require __DIR__ . '/../../../../vendor/autoload.php';
+} else if (file_exists(__DIR__ . '/../../../vendor/autoload.php')) {
+    require __DIR__ . '/../../../vendor/autoload.php';
+} else if (file_exists(__DIR__ . '/../../vendor/autoload.php')) {
+    require __DIR__ . '/../../vendor/autoload.php';
+} else {
+    require __DIR__ . '/../vendor/autoload.php';
+}
+
+use Symfony\Component\Console\Input;
+use Symfony\Component\Console\Output;
+
+$app = new \Symfony\Component\Console\Application();
+
+$app->addCommands([
+    new \Kiboko\Component\Satellite\Console\Command\ApiRunCommand(),
+    new \Kiboko\Component\Satellite\Console\Command\BuildCommand(),
+    new \Kiboko\Component\Satellite\Console\Command\HookRunCommand(),
+    new \Kiboko\Component\Satellite\Console\Command\ValidateCommand(),
+    new \Kiboko\Component\Satellite\Console\Command\PipelineRunCommand(),
+    new \Kiboko\Component\Satellite\Console\Command\WorkflowRunCommand(),
+    new \Kiboko\Component\Satellite\Console\Command\RunCommand(),
+]);
+
+$app->run(new Input\ArgvInput(), new Output\ConsoleOutput());

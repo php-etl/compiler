@@ -1,0 +1,33 @@
+satellite:
+  filesystem:
+    path: build
+  pipeline:
+    steps:
+      - akeneo:
+          enterprise: false
+          extractor:
+              type: product
+              method: all
+          client:
+          api_url: '@=env("AKENEO_URL")'
+          client_id: '@=env("AKENEO_CLIENT_ID")'
+          secret: '@=env("AKENEO_CLIENT_SECRET")'
+          username: '@=env("AKENEO_USERNAME")'
+          password: '@=env("AKENEO_PASSWORD")'
+        logger:
+          channel: pipeline
+          destinations:
+            - elasticsearch:
+                level: notice
+                hosts:
+                  - 'http://localhost:9200'
+      - batch:
+          expression_language:
+          - 'Kiboko\Component\ExpressionLanguage\Akeneo\AkeneoFilterProvider'
+          fork:
+            foreach: '@=["Nom_produit", "coloris", "code_tfp"]'
+            do: '@={ code: input["identifier"], LCID: "fr_FR", attributeName: item, attributeValue: attribute(input["values"][item], locale("fr_FR", null)) }'
+
+      - stream:
+            loader:
+                destination: stdout

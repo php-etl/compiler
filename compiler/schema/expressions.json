@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/php-etl/satellite/master/schema/espressions.json",
+  "title": "Middleware Satellite",
+  "description": "A Satellite is a micro-service aimed at managing data pipelines and data processing",
+  "$defs": {
+    "bundled-expression": {
+      "type": "string",
+      "pattern": "^@="
+    },
+    "property-path": {
+      "type": "string",
+      "pattern": "^(?:\\[[^\\]]+\\]|[^\\[.\\s]+)(?:\\[[^\\]]+\\]|\\.[^\\[.\\s]+)*$"
+    },
+    "datetime": {
+      "oneOf": [
+        {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        {
+          "type": "string",
+          "pattern": "^\\d{4}:\\d{2}:\\d{2}$"
+        },
+        {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{4}:\\d{2}:\\d{2}$"
+        },
+        {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{4}:\\d{2}:\\d{2}\\+\\d{2}:\\d{2}$"
+        },
+        {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{4}:\\d{2}:\\d{2} (Africa|America|Asia|Etc|Europe|Pacific)/[A-Z][A-Za-z]+$"
+        }
+      ]
+    },
+    "expression-or-string": {
+      "oneOf": [
+        { "$ref": "#/$defs/bundled-expression" },
+        { "type": "string" }
+      ]
+    },
+    "expression-or-property-path": {
+      "oneOf": [
+        { "$ref": "#/$defs/bundled-expression" },
+        { "$ref": "#/$defs/property-path" }
+      ]
+    },
+    "expression-or-number": {
+      "oneOf": [
+        { "$ref": "#/$defs/bundled-expression" },
+        { "type": "number" }
+      ]
+    },
+    "expression-or-boolean": {
+      "oneOf": [
+        { "$ref": "#/$defs/bundled-expression" },
+        { "type": "boolean" }
+      ]
+    },
+    "expression-or-any": {
+      "oneOf": [
+        { "$ref": "#/$defs/bundled-expression" },
+        { "$ref": "#/$defs/datetime" },
+        { "type": "string" },
+        { "type": "number" },
+        { "type": "boolean" }
+      ]
+    },
+    "expression-or-datetime": {
+      "oneOf": [
+        { "$ref": "#/$defs/bundled-expression" },
+        { "$ref": "#/$defs/datetime" }
+      ]
+    }
+  }
+}

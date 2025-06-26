@@ -1,0 +1,57 @@
+satellite:
+#  docker:
+#    from: php:8.0-cli-alpine
+#    workdir: /var/www/html
+#    tags:
+#      - kiboko/satellite:foo
+#      - kiboko/satellite:bar
+  filesystem:
+    path: build
+  pipeline:
+    expression_language:
+      - 'Kiboko\Component\ExpressionLanguage\Akeneo\AkeneoFilterProvider'
+    steps:
+    - akeneo:
+        extractor:
+          type: product
+          method: all
+        client:
+          api_url: '@=env("AKENEO_URL")'
+          client_id: '@=env("AKENEO_CLIENT_ID")'
+          secret: '@=env("AKENEO_CLIENT_SECRET")'
+          username: '@=env("AKENEO_USERNAME")'
+          password: '@=env("AKENEO_PASSWORD")'
+    - fastmap:
+        map:
+          - field: '[image]'
+            expression: 'attribute(input["values"]["image"])'
+    - akeneo:
+        lookup:
+          type: productMediaFile
+          method: download
+          code: '@=input["image"]'
+          merge:
+            map:
+              - field: "[image_file]"
+                expression: 'temporaryFile(lookup)'
+        client:
+          api_url: '@=env("AKENEO_URL")'
+          client_id: '@=env("AKENEO_CLIENT_ID")'
+          secret: '@=env("AKENEO_CLIENT_SECRET")'
+          username: '@=env("AKENEO_USERNAME")'
+          password: '@=env("AKENEO_PASSWORD")'
+    - ftp:
+        expression_language:
+          - 'Kiboko\Component\ExpressionLanguage\Akeneo\AkeneoFilterProvider'
+        loader:
+          servers:
+            - host: localhost
+              port: 21
+              username: username
+              password: password
+              base_path: /my/path
+          put:
+            - path: '@=input["image"]'
+              content: '@=input["image_file"]'
+              mode: '0755'
+              if: '@=input["image"] !== null'
