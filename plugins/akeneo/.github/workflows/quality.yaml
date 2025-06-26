@@ -1,0 +1,36 @@
+name: Quality (PHPStan lvl 4)
+on: push
+jobs:
+    cs-fixer:
+        runs-on: ubuntu-latest
+        steps:
+            -   uses: actions/checkout@v4
+            -   uses: shivammathur/setup-php@v2
+                with:
+                    php-version: '8.2'
+                    coverage: none
+            -   name: Cs-Fixer
+                run: |
+                    wget -q https://cs.symfony.com/download/php-cs-fixer-v3.phar -O php-cs-fixer
+                    chmod a+x php-cs-fixer
+                    PHP_CS_FIXER_IGNORE_ENV=true ./php-cs-fixer fix src --dry-run
+
+    phpstan:
+        runs-on: ubuntu-latest
+        steps:
+            -   uses: actions/checkout@v4
+            -   uses: shivammathur/setup-php@v2
+                with:
+                    php-version: '8.2'
+                    coverage: none
+            -   uses: actions/cache@v4
+                with:
+                    path: '**/vendor'
+                    key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+                    restore-keys: |
+                        ${{ runner.os }}-composer-
+            -   name: PHPStan
+                run: | 
+                    wget -qO phpstan.phar https://github.com/phpstan/phpstan/releases/latest/download/phpstan.phar
+                    chmod +x phpstan.phar
+                    ./phpstan.phar analyse src --level=4
