@@ -15,6 +15,12 @@ merge_plugin () {
   merge "$name-plugin" "plugins/$name/"
 }
 
+merge_expression_functions () {
+  name=$1
+
+  merge "$name-expression-language" "expression-language/$name/"
+}
+
 pull () {
   name=$1
   prefix=$2
@@ -31,6 +37,12 @@ pull_plugin () {
   pull "$name-plugin" "plugins/$name/"
 }
 
+pull_expression_functions () {
+  name=$1
+
+  pull "$name-expression-language" "expression-language/$name/"
+}
+
 push () {
   name=$1
   prefix=$2
@@ -45,4 +57,10 @@ push_plugin () {
   name=$1
 
   push "$name-plugin" "plugins/$name/"
+}
+
+push_expression_functions () {
+  name=$1
+
+  push "$name-expression-language" "expression-language/$name/"
 }
