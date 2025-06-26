@@ -1,0 +1,49 @@
+{
+    "name": "php-etl/phpspec-extension",
+    "description": "Extension for testing FastMap and ETL components with PHPSpec testing framework",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kiboko SAS",
+            "homepage": "http://kiboko.fr"
+        },
+        {
+            "name": "Grégory Planchat",
+            "email": "gregory@kiboko.fr"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": "^8.2",
+        "phpspec/phpspec": "^7.3",
+        "friends-of-phpspec/phpspec-code-coverage": "*",
+        "doctrine/inflector": "^2.0",
+        "nikic/php-parser": "^4.10",
+        "php-etl/metadata": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Kiboko\\Component\\PHPSpecExtension\\FastMap\\": "src/FastMap/",
+            "Kiboko\\Component\\PHPSpecExtension\\Metadata\\": "src/Metadata/",
+            "Kiboko\\Component\\PHPSpecExtension\\DataProvider\\": "src/DataProvider/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "spec\\Kiboko\\Component\\PHPSpecExtension\\": "spec/"
+        }
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "0.5.x-dev"
+        }
+    },
+    "require-dev": {
+        "rector/rector": "^0.15"
+    }
+}
