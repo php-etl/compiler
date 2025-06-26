@@ -1,0 +1,59 @@
+{
+    "name": "php-etl/fast-map",
+    "description": "This library implements a compiled data mapping library",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kiboko SAS",
+            "homepage": "http://kiboko.fr"
+        },
+        {
+            "name": "Grégory Planchat",
+            "email": "gregory@kiboko.fr"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": "^8.2",
+        "nikic/php-parser": "^4.15",
+        "symfony/property-access": "^6.0",
+        "symfony/expression-language": "^6.0",
+        "symfony/cache": "^6.0",
+        "doctrine/inflector": "^2.0",
+        "php-etl/metadata": "*",
+        "php-etl/mapping-contracts": "0.4.*",
+        "php-etl/metadata-contracts": "0.2.*",
+        "php-etl/satellite-toolbox": "*"
+    },
+    "require-dev": {
+        "mikey179/vfsstream": "^1.6",
+        "phpunit/phpunit": "^10.0",
+        "phpunit/php-invoker": "*",
+        "friendsofphp/php-cs-fixer": "^3.38",
+        "phpstan/phpstan": "^1.10",
+        "rector/rector": "^0.15",
+        "php-etl/phpspec-extension": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Kiboko\\Component\\FastMap\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "spec\\Kiboko\\Component\\FastMap\\": "spec/",
+            "unit\\Kiboko\\Component\\FastMap\\": "unit/",
+            "functional\\Kiboko\\Component\\FastMap\\": "functional/"
+        }
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "0.5.x-dev"
+        }
+    }
+}
