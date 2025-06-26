@@ -1,0 +1,3 @@
+json:
+  loader:
+    file_path: 'myfile.jsonld'
