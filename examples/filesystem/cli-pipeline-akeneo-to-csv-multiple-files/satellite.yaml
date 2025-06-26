@@ -1,0 +1,35 @@
+satellite:
+  filesystem:
+    path: build
+  pipeline:
+    expression_language:
+      - 'Kiboko\Component\ExpressionLanguage\Akeneo\AkeneoFilterProvider'
+    steps:
+    - akeneo:
+        enterprise: true
+        extractor:
+          type: category
+          method: all
+        client:
+          api_url: '@=env("AKENEO_URL")'
+          client_id: '@=env("AKENEO_CLIENT_ID")'
+          secret: '@=env("AKENEO_CLIENT_SECRET")'
+          username: '@=env("AKENEO_USERNAME")'
+          password: '@=env("AKENEO_PASSWORD")'
+    - fastmap:
+        map:
+          - field: '[code]'
+            copy: '[code]'
+          - field: '[name]'
+            expression: 'input["labels"]["fr_FR"]'
+          - field: '[staticValue]'
+            constant: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur mollis efficitur justo, id facilisis elit venenatis et. Sed fermentum posuere convallis. Phasellus lectus neque, bibendum sit amet enim imperdiet, dignissim blandit nisi. Donec nec neque nisi. Vivamus luctus facilisis nibh id rhoncus. Vestibulum eget facilisis tortor. Etiam at cursus enim, vitae mollis ex. Proin at velit at erat bibendum ultricies. Duis ut velit malesuada, placerat nisl a, ultrices tortor.'
+    - csv:
+        expression_language:
+          - 'Kiboko\Component\StringExpressionLanguage\StringExpressionLanguageProvider'
+        loader:
+          file_path: '@=format("PRODUCT_%06d.csv", index)'
+          max_lines : 20
+          delimiter: ','
+          enclosure: '"'
+          escape: '\'

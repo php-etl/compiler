@@ -1,0 +1,131 @@
+{
+    "name": "php-etl/satellite",
+    "description": "This library aims at building and running lambda PHP functions",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kiboko SAS",
+            "homepage": "http://kiboko.fr"
+        },
+        {
+            "name": "Grégory Planchat",
+            "email": "gregory@kiboko.fr"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": "^8.2",
+        "ext-json": "*",
+        "psr/log": "^3.0",
+        "symfony/console": "^6.0",
+        "symfony/config": "^6.0",
+        "symfony/yaml": "^6.0",
+        "symfony/dependency-injection": "^6.0",
+        "nikic/php-parser": "^4.15",
+        "nyholm/psr7": "^1.5",
+        "psr/http-client": "^1.0",
+        "react/promise": "^2.9",
+        "symfony/dotenv": "^6.0",
+        "php-etl/packaging": "*",
+        "php-etl/configurator-contracts": "0.8.*",
+        "php-etl/satellite-toolbox": "*",
+        "php-etl/gyroscops-api-client": "^0.3.0",
+        "php-etl/dockerfile": "*",
+        "composer/composer": "*",
+        "symfony/deprecation-contracts": "*",
+        "react/child-process": "^0.7",
+        "react/async": "^4.1",
+        "react/promise-timer": "^1.10",
+        "symfony/http-client": "^6.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.0",
+        "phpspec/phpspec": "^7.3",
+        "phpstan/phpstan": "^1.10",
+        "infection/infection": "^0.26",
+        "friends-of-phpspec/phpspec-code-coverage": "*",
+        "fakerphp/faker": "^1.9",
+        "justinrainbow/json-schema": "^5.2",
+        "rector/rector": "^0.15",
+        "php-etl/phpunit-extension": "0.7.*",
+        "mikey179/vfsstream": "^1.6",
+        "friendsofphp/php-cs-fixer": "^3.38"
+    },
+    "suggest": {
+        "php-etl/array-expression-language": "A set of function for arrays manipulation",
+        "php-etl/string-expression-language": "A set of function for string manipulation",
+        "php-etl/fast-map-plugin": "A Gyroscops plugin for data mapping",
+        "php-etl/akeneo-plugin": "A Gyroscops plugin for Akeneo API connectivity",
+        "php-etl/csv-plugin": "A Gyroscops plugin for CSV format",
+        "php-etl/spreadsheet-plugin": "A Gyroscops plugin for Excel and Open Document formats",
+        "php-etl/sql-plugin": "A Gyroscops plugin for SQL connectivity using PDO",
+        "php-etl/sylius-plugin": "A Gyroscops plugin for Sylius API connectivity"
+    },
+    "autoload": {
+        "psr-4": {
+            "Kiboko\\Component\\Satellite\\": "src/"
+        },
+        "files": [
+            "src/attributes.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "unit\\Kiboko\\Component\\Satellite\\": "tests/unit/",
+            "functional\\Kiboko\\Component\\Satellite\\": "tests/functional/",
+            "integration\\Kiboko\\Component\\Satellite\\": "tests/integration/",
+            "schema\\Kiboko\\Component\\Satellite\\": "tests/schema/"
+        }
+    },
+    "config": {
+        "bin-dir": "bin",
+        "allow-plugins": {
+            "php-http/discovery": true,
+            "infection/extension-installer": true
+        }
+    },
+    "bin": ["bin/satellite", "bin/cloud"],
+    "extra": {
+        "branch-alias": {
+            "dev-main": "0.7.x-dev"
+        },
+        "gyroscops": {
+            "adapters": [
+                "Kiboko\\Component\\Satellite\\Adapter\\Docker\\Factory",
+                "Kiboko\\Component\\Satellite\\Adapter\\Filesystem\\Factory",
+                "Kiboko\\Component\\Satellite\\Adapter\\Tar\\Factory"
+            ],
+            "runtimes": [
+                "Kiboko\\Component\\Satellite\\Runtime\\Api\\Factory",
+                "Kiboko\\Component\\Satellite\\Runtime\\HttpHook\\Factory",
+                "Kiboko\\Component\\Satellite\\Runtime\\Pipeline\\Factory",
+                "Kiboko\\Component\\Satellite\\Runtime\\Workflow\\Factory"
+            ],
+            "plugins": [
+                "Kiboko\\Component\\Satellite\\Feature\\Logger\\Service",
+                "Kiboko\\Component\\Satellite\\Feature\\State\\Service",
+                "Kiboko\\Component\\Satellite\\Feature\\Rejection\\Service",
+                "Kiboko\\Component\\Satellite\\Plugin\\Custom\\Service",
+                "Kiboko\\Component\\Satellite\\Plugin\\Stream\\Service",
+                "Kiboko\\Component\\Satellite\\Plugin\\SFTP\\Service",
+                "Kiboko\\Component\\Satellite\\Plugin\\FTP\\Service",
+                "Kiboko\\Component\\Satellite\\Plugin\\Batching\\Service",
+                "Kiboko\\Component\\Satellite\\Plugin\\Filtering\\Service"
+            ],
+            "actions": [
+                "Kiboko\\Component\\Satellite\\Action\\SFTP\\Service",
+                "Kiboko\\Component\\Satellite\\Action\\Custom\\Service"
+            ]
+        }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "Kiboko\\Component\\Satellite\\ComposerScripts::postInstall"
+        ],
+        "post-update-cmd": [
+            "Kiboko\\Component\\Satellite\\ComposerScripts::postUpdate"
+        ]
+    }
+}

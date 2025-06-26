@@ -1,0 +1,53 @@
+satellite:
+  #  docker:
+  #    from: php:8.0-fpm-alpine
+  #    workdir: /var/www/html
+  #    tags:
+  #      - kiboko/satellite:foo
+  #      - kiboko/satellite:bar
+  filesystem:
+    path: foo
+  composer:
+#    from_local: true
+    require:
+      - "middlewares/uuid:dev-master"
+      - "middlewares/base-path:dev-master"
+      - "middlewares/request-handler:dev-master"
+      - "laminas/laminas-diactoros"
+      - "laminas/laminas-httphandlerrunner"
+      - "nyholm/psr7-server"
+      - "nyholm/psr7"
+      - "php-etl/hook-runtime"
+      - "symfony/expression-language"
+      - "php-etl/mapping-contracts"
+      - "tuupola/slim-jwt-auth"
+      - "tuupola/slim-basic-auth"
+  http_hook:
+    path: /bar/hello
+    authorization:
+      basic:
+        - user: john
+          password: my_password
+        - user: bill
+          password: other_password
+    expression: 'input["_items"]'
+    pipeline:
+      steps:
+        - fastmap:
+            map:
+              - field: '[sku]'
+                copy: '[sku]'
+              - field: '[title]'
+                expression: 'input["sku"] ~" | "~ input["name"]'
+              - field: '[name]'
+                copy: '[name]'
+              - field: '[staticValue]'
+                constant: 'Lorem ipsum dolor sit amet'
+        - csv:
+            loader:
+              file_path: output.csv
+              delimiter: ','
+              enclosure: '"'
+              escape: '\'
+            logger:
+              type: stderr

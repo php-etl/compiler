@@ -1,0 +1,36 @@
+version: "0.3"
+satellites:
+  - label: "foo"
+    filesystem:
+      path: build/
+    composer:
+      require:
+        - php-etl/pipeline:*
+        - php-etl/bucket:*
+        - php-etl/csv-flow:*
+    workflow:
+      jobs:
+        - name: 'Products Pipeline'
+          pipeline:
+            steps:
+              - csv:
+                  extractor:
+                    file_path: '../data/products.csv'
+              - fastmap:
+                  map:
+                    - copy: '[sku]'
+                      field: '[identifier]'
+              - stream:
+                  loader:
+                    destination: '../data/products.ldjson'
+                    format: 'json'
+        - name: 'Customers Pipeline'
+          pipeline:
+            steps:
+              - csv:
+                  extractor:
+                    file_path: '../data/customers.csv'
+              - stream:
+                  loader:
+                    destination: '../data/customers.ldjson'
+                    format: 'json'

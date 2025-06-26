@@ -1,0 +1,20 @@
+localhost:4000 {
+    reverse_proxy /foo/* satellite-1:9000 {
+        transport fastcgi {
+            root /var/www/html/main.php
+        }
+    }
+    reverse_proxy /bar/* satellite-2:9000 {
+        transport fastcgi {
+            root /var/www/html/main.php
+        }
+    }
+
+    log {
+        level DEBUG
+    }
+
+    tls internal {
+        protocols tls1.2 tls1.3
+    }
+}
