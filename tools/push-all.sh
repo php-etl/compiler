@@ -12,6 +12,7 @@ push_plugin fast-map
 push_plugin json
 push_plugin log
 push_plugin prestashop
+push_plugin shopify
 push_plugin spreadsheet
 push_plugin sql
 push_plugin sylius
