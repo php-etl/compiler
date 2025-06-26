@@ -1,0 +1,6 @@
+.env
+.idea/
+vendor/
+!.idea/runConfigurations
+bin/
+.php-cs-fixer.cache
