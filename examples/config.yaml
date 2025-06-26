@@ -1,0 +1,20 @@
+version: '0.3'
+satellites:
+  prestashop:
+    label: 'prestashop to json'
+    filesystem:
+        path: 'build'
+    pipeline:
+      steps:
+        - prestashop:
+            client:
+              url: 'http://127.0.0.1:8001'
+              api_key: '1VN86447KTXYCA51DGKYKJTGHDBE8T5Z'
+            extractor:
+              type: 'products'
+              method: 'all'
+              options:
+                id_shop: '1'
+        - json:
+            loader:
+              file_path: 'output.json'
