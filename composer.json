@@ -1,0 +1,59 @@
+{
+    "name": "php-etl/fast-map-plugin",
+    "description": "Adapters for the Fast Map mapping library",
+    "type": "gyroscops-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Grégory Planchat",
+            "email": "gregory@kiboko.fr"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": "^8.2",
+        "ext-json": "*",
+        "nikic/php-parser": "^4.15",
+        "symfony/config": "^6.0",
+        "php-etl/fast-map-config": "*",
+        "php-etl/packaging-contracts": "0.3.*",
+        "php-etl/satellite-toolbox": "*",
+        "php-etl/configurator-contracts": "0.8.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.0",
+        "phpunit/php-invoker": "*",
+        "php-etl/phpunit-extension": "*",
+        "friendsofphp/php-cs-fixer": "^3.38",
+        "phpstan/phpstan": "^1.10",
+        "rector/rector": "^0.15",
+        "infection/infection": "^0.26",
+        "php-etl/bucket": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Kiboko\\Plugin\\FastMap\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "functional\\Kiboko\\Plugin\\FastMap\\": "tests/functional/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "0.8.x-dev"
+        },
+        "gyroscops": {
+            "plugins": ["Kiboko\\Plugin\\FastMap\\Service"]
+        }
+    },
+    "config": {
+        "bin-dir": "bin",
+        "allow-plugins": {
+            "php-http/discovery": true,
+            "infection/extension-installer": true
+        }
+    }
+}
