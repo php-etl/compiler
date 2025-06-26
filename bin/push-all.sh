@@ -5,6 +5,8 @@ path=$(dirname $0)
 . "$path/_functions.sh"
 
 push "satellite" "compiler/"
+push "satellite-toolbox" "toolbox/"
+push "dockerfile" "dockerfile/"
 
 push_plugin akeneo
 push_plugin csv

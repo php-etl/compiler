@@ -5,6 +5,8 @@ path=$(dirname $0)
 . "$path/_functions.sh"
 
 pull "satellite" "compiler/"
+pull "satellite-toolbox" "toolbox/"
+pull "dockerfile" "dockerfile/"
 
 pull_plugin akeneo
 pull_plugin csv
