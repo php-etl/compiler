@@ -1,0 +1,64 @@
+{
+    "name": "php-etl/akeneo-plugin",
+    "description": "Adapters for the Akeneo API client",
+    "type": "gyroscops-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Grégory Planchat",
+            "email": "gregory@kiboko.fr"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": "^8.2",
+        "ext-json": "*",
+        "nikic/php-parser": "^4.13.2",
+        "symfony/config": "^6.0",
+        "symfony/expression-language": "^6.0",
+        "php-etl/configurator-contracts": "0.8.*",
+        "php-etl/fast-map-plugin": "*",
+        "php-etl/packaging-contracts": "0.3.*",
+        "php-etl/satellite-toolbox": "*"
+    },
+    "require-dev": {
+        "symfony/yaml": "^6.0",
+        "php-etl/phpunit-extension": "0.5.x-dev",
+        "php-etl/bucket-contracts": "0.2.*",
+        "akeneo/api-php-client": "^9.0",
+        "php-etl/bucket": "*",
+        "guzzlehttp/psr7": "^2.0",
+        "php-http/message": "^1.11",
+        "php-http/curl-client": "^2.0",
+        "phpstan/phpstan": "^1.10",
+        "friendsofphp/php-cs-fixer": "^3.0",
+        "infection/infection": "^0.26.18",
+        "rector/rector": "^0.15"
+    },
+    "autoload": {
+        "psr-4": {
+            "Kiboko\\Plugin\\Akeneo\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "functional\\Kiboko\\Plugin\\Akeneo\\": "tests/functional/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "0.7.x-dev"
+        },
+        "gyroscops": {
+            "plugins": ["Kiboko\\Plugin\\Akeneo\\Service"]
+        }
+    },
+    "config": {
+        "bin-dir": "bin",
+        "allow-plugins": {
+            "infection/extension-installer": true,
+            "php-http/discovery": true
+        }
+    }
+}
