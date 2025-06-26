@@ -1,0 +1,53 @@
+{
+    "name": "php-etl/phpunit-extension",
+    "description": "Extension for testing FastMap and ETL components with PHPUnit testing framework",
+    "type": "library",
+    "require": {
+        "php": "^8.2",
+        "phpunit/phpunit": "^10.0",
+        "nikic/php-parser": "^4.10",
+        "php-etl/pipeline-contracts": "0.5.*",
+        "php-http/message": "^1.11",
+        "php-http/mock-client": "^1.4@dev",
+        "fakerphp/faker": "^1.19",
+        "laminas/laminas-diactoros": "^2.6",
+        "mikey179/vfsstream": "^1.6"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^1.10",
+        "friendsofphp/php-cs-fixer": "^3.38",
+        "infection/infection": "^0.26.18",
+        "rector/rector": "^0.15"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Grégory Planchat",
+            "email": "gregory@kiboko.fr"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "Kiboko\\Component\\PHPUnitExtension\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "functional\\Kiboko\\Component\\PHPUnitExtension\\": "tests/functional/"
+        }
+    },
+    "config": {
+        "bin-dir": "bin",
+        "allow-plugins": {
+            "php-http/discovery": true,
+            "infection/extension-installer": true
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "0.7.x-dev"
+        }
+    }
+}
