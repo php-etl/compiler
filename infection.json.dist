@@ -1,0 +1,25 @@
+{
+    "source": {
+        "directories": [
+            "src"
+        ]
+    },
+    "timeout": 10,
+    "logs": {
+        "text": "infection/infection.log",
+        "summary": "infection/summary.log",
+        "json": "infection/infection-log.json",
+        "perMutator": "infection/per-mutator.md",
+        "html": "infection/infection.html"
+    },
+    "phpUnit": {
+        "configDir": "."
+    },
+    "mutators": {
+        "@default": true
+    },
+    "testFramework":"phpunit",
+    "initialTestsPhpOptions": "-d zend_extension=xdebug -d xdebug.mode=coverage",
+    "minMsi": 50,
+    "minCoveredMsi": 70
+}
