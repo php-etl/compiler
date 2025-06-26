@@ -1,0 +1,13 @@
+csv:
+  expression_language:
+    - 'functional\Kiboko\Plugin\CSV\ExpressionLanguage\Provider'
+#  extractor:
+#    file_path: '@=env("CSV_FILEPATH")' # or, 'input.csv'
+#    delimiter: '@=env("DELIMITER")' # or, ';'
+#    enclosure: '@=env("ENCLOSURE")' # or, '"'
+#    escape: '@=env("ESCAPE")' # or, '\\'
+  loader:
+    file_path: '@=env("CSV_FILEPATH")' # or, 'output.csv'
+    delimiter: '@=env("CSV_FILEPATH")' # or, ','
+    enclosure: '@=env("CSV_FILEPATH")' # or, '"'
+    escape: '@=env("CSV_FILEPATH")' # or, '\\'

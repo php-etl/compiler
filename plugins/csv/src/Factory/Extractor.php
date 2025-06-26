@@ -1,0 +1,76 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Kiboko\Plugin\CSV\Factory;
+
+use Kiboko\Contract\Configurator;
+use Kiboko\Plugin\CSV;
+use Symfony\Component\Config\Definition\ConfigurationInterface;
+use Symfony\Component\Config\Definition\Exception as Symfony;
+use Symfony\Component\Config\Definition\Processor;
+use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
+
+use function Kiboko\Component\SatelliteToolbox\Configuration\compileValue;
+use function Kiboko\Component\SatelliteToolbox\Configuration\compileValueWhenExpression;
+
+final readonly class Extractor implements Configurator\FactoryInterface
+{
+    private Processor $processor;
+    private ConfigurationInterface $configuration;
+
+    public function __construct(private ExpressionLanguage $interpreter)
+    {
+        $this->processor = new Processor();
+        $this->configuration = new CSV\Configuration\Extractor();
+    }
+
+    public function configuration(): ConfigurationInterface
+    {
+        return $this->configuration;
+    }
+
+    /**
+     * @throws Configurator\ConfigurationExceptionInterface
+     */
+    public function normalize(array $config): array
+    {
+        try {
+            return $this->processor->processConfiguration($this->configuration, $config);
+        } catch (Symfony\InvalidTypeException|Symfony\InvalidConfigurationException $exception) {
+            throw new Configurator\InvalidConfigurationException($exception->getMessage(), 0, $exception);
+        }
+    }
+
+    public function validate(array $config): bool
+    {
+        try {
+            $this->processor->processConfiguration($this->configuration, $config);
+
+            return true;
+        } catch (Symfony\InvalidTypeException|Symfony\InvalidConfigurationException) {
+            return false;
+        }
+    }
+
+    public function compile(array $config): Repository\Extractor
+    {
+        $extractor = new CSV\Builder\Extractor(
+            filePath: compileValueWhenExpression($this->interpreter, $config['file_path']),
+            delimiter: \array_key_exists('delimiter', $config) ? compileValueWhenExpression($this->interpreter, $config['delimiter']) : null,
+            enclosure: \array_key_exists('enclosure', $config) ? compileValueWhenExpression($this->interpreter, $config['enclosure']) : null,
+            escape: \array_key_exists('escape', $config) ? compileValueWhenExpression($this->interpreter, $config['escape']) : null,
+            columns: \array_key_exists('columns', $config) ? compileValue($this->interpreter, $config['columns']) : null
+        );
+
+        if (\array_key_exists('safe_mode', $config)) {
+            if (true === $config['safe_mode']) {
+                $extractor->withSafeMode();
+            } else {
+                $extractor->withFingersCrossedMode();
+            }
+        }
+
+        return new Repository\Extractor($extractor);
+    }
+}
