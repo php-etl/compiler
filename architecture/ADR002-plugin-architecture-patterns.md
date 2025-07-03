@@ -186,7 +186,7 @@ src/
 **Client Management:**
 - Create dedicated client factory and builder
 - Handle authentication and connection configuration
-- Support multiple authentication methods
+- Support multiple authentication methods if available
 - Implement proper error handling for API failures
 
 **Integration Layer:**
