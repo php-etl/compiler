@@ -1,28 +1,27 @@
-akeneo:
+shopify:
   expression_language:
     - 'Kiboko\Component\ArrayExpressionLanguage\ArrayExpressionLanguageProvider'
-    - 'functional\Kiboko\Plugin\Akeneo\ExpressionLanguage\Provider'
 #  extractor:
-#    type: attributeOption
-#    code: 'input["code"]'
+#    type: products
 #    method: all
 #    search:
-#      - { field: enabled, operator: '=', value: '@=input["code"]', scope: '@=input["code"]', locale: '@=input["fr_FR"]' }
+#      - { field: status, operator: '=', value: 'active' }
+#      - { field: product_type, operator: '=', value: '@=input["product_type"]' }
+#      - { field: vendor, operator: '=', value: '@=input["vendor"]' }
   lookup:
     conditional:
-      - condition: '@=(input["type"] in ["pim_catalog_simpleselect", "pim_catalog_multipleselect"])'
-        type: attributeOption
-        code: '@=input["code"]'
-        method: listPerPage
+      - condition: '@=(input["type"] in ["customer", "order"])'
+        type: customers
+        method: get
         search:
-          - { field: enabled, operator: '=', value: '@=input["code"]', scope: '@=input["code"]', locale: '@=input["fr_FR"]' }
+          - { field: email, operator: '=', value: '@=input["email"]' }
         merge:
           map:
-            - field: '[options]'
-              expression: 'join("|", lookup["code"])'
+            - field: '[customer_id]'
+              expression: 'lookup["id"]'
   client:
-    api_url: '@=env("API_URL")' # or, 'http://demo.akeneo.com/'
-    client_id: '@=env("CLIENT_ID")' # or, '5_5555o1hi5vggs8k0kw8gks80wwow4ckgogok48cgc8ggsco8os'
-    secret: '@=env("SECRET")' # or, 't04o6nh5vtw4wkcg0swocs8wcoskg0ck84sggcs4ok0oo8c8k'
-    username: '@=env("USERNAME")' # or, 'sylius_9794'
-    password: '@=env("PASSWORD")' # or, 'a60d900c9'
+    api_url: '@=env("SHOPIFY_API_URL")' # or, 'https://your-shop.myshopify.com'
+    client_id: '@=env("SHOPIFY_CLIENT_ID")' # or, 'your_api_key'
+    secret: '@=env("SHOPIFY_SECRET")' # or, 'your_api_secret'
+    username: '@=env("SHOPIFY_USERNAME")' # or, 'your_username'
+    password: '@=env("SHOPIFY_PASSWORD")' # or, 'your_password'
