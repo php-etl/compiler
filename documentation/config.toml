@@ -87,7 +87,42 @@ hasChildren = true
     weight = 6
 
 [[menu.main]]
+name = "Compiler"
 weight = 3
+hasChildren = true
+
+  [[menu.main]]
+  parent = "Compiler"
+  name = "Overview"
+  url = "compiler"
+  weight = 1
+
+  [[menu.main]]
+  parent = "Compiler"
+  name = "Architecture"
+  url = "compiler/architecture"
+  weight = 2
+
+  [[menu.main]]
+  parent = "Compiler"
+  name = "Configuration Schema"
+  url = "compiler/configuration"
+  weight = 3
+
+  [[menu.main]]
+  parent = "Compiler"
+  name = "API Reference"
+  url = "compiler/api"
+  weight = 4
+
+  [[menu.main]]
+  parent = "Compiler"
+  name = "Plugin Development"
+  url = "compiler/plugin-development"
+  weight = 5
+
+[[menu.main]]
+weight = 4
 name = "Features"
 hasChildren = true
 
@@ -122,7 +157,7 @@ hasChildren = true
   weight = 5
 
 [[menu.main]]
-weight = 3
+weight = 5
 name = "Connectivity"
 hasChildren = true
 
@@ -217,7 +252,7 @@ hasChildren = true
   weight = 15
 
 [[menu.main]]
-weight = 4
+weight = 6
 name = "Cloud"
 hasChildren = true
 
