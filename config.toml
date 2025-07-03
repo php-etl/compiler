@@ -1,0 +1,321 @@
+baseURL = "https://php-etl.github.io/documentation/"
+languageCode = "en-us"
+# theme
+theme = "middleware"
+# site title
+title = "Gyroscops"
+# disable language
+disableLanguages = ['fr']
+# google analytics
+googleAnalytics = "" # paste your analytics ID here. (Ex: UA-123-45)
+publishDir = "docs"
+
+[[menu.main]]
+name = "Getting Started"
+weight = 1
+hasChildren = true
+
+  [[menu.main]]
+  parent = "Getting Started"
+  name = "Environment Setup"
+  url = "getting-started/environment-setup"
+  weight = 1
+
+  [[menu.main]]
+  parent = "Getting Started"
+  name = "Installation"
+  url = "getting-started/installation"
+  weight = 2
+
+  [[menu.main]]
+  parent = "Getting Started"
+  name = "Writing Configuration"
+  url = "getting-started/writing-configuration"
+  weight = 3
+
+  [[menu.main]]
+  parent = "Getting Started"
+  name = "Compilation"
+  url = "getting-started/compilation"
+  weight = 4
+
+  [[menu.main]]
+  parent = "Getting Started"
+  name = "Execution"
+  url = "getting-started/execution"
+  weight = 5
+
+[[menu.main]]
+name = "Core concepts"
+weight = 2
+hasChildren = true
+
+  [[menu.main]]
+  parent = "Core concepts"
+  name = "Satellites"
+  url = "core-concept/satellite"
+  weight = 1
+
+  [[menu.main]]
+  parent = "Core concepts"
+  name = "Pipeline"
+  url = "core-concept/satellite/pipeline"
+  weight = 2
+
+  [[menu.main]]
+  parent = "Core concepts"
+  name = "Workflow"
+  url = "core-concept/satellite/workflow"
+  weight = 3
+
+  [[menu.main]]
+  parent = "Core concepts"
+  name = "HTTP Hook"
+  url = "core-concept/satellite/http-hook"
+  weight = 4
+
+  [[menu.main]]
+  parent = "Core concepts"
+  name = "HTTP API"
+  url = "core-concept/satellite/http-api"
+  weight = 5
+
+  [[menu.main]]
+    parent = "Core concepts"
+    name = "Action"
+    url = "core-concept/satellite/action"
+    weight = 6
+
+[[menu.main]]
+weight = 3
+name = "Features"
+hasChildren = true
+
+  [[menu.main]]
+  parent = "Features"
+  name = "Declaring services"
+  url = "feature/services"
+  weight = 1
+
+  [[menu.main]]
+  parent = "Features"
+  name = "Expression Language"
+  url = "feature/expression-language"
+  weight = 2
+
+  [[menu.main]]
+  parent = "Features"
+  name = "Logging"
+  url = "feature/logger"
+  weight = 3
+
+  [[menu.main]]
+  parent = "Features"
+  name = "Rejection"
+  url = "feature/rejection"
+  weight = 4
+
+  [[menu.main]]
+  parent = "Features"
+  name = "State"
+  url = "feature/state"
+  weight = 5
+
+[[menu.main]]
+weight = 3
+name = "Connectivity"
+hasChildren = true
+
+  [[menu.main]]
+  parent = "Connectivity"
+  name = "Akeneo"
+  url = "connectivity/akeneo"
+  weight = 1
+
+  [[menu.main]]
+  parent = "Connectivity"
+  name = "CSV files"
+  url = "connectivity/csv"
+  weight = 2
+
+  [[menu.main]]
+  parent = "Connectivity"
+  name = "Custom connector"
+  url = "connectivity/custom"
+  weight = 3
+
+  [[menu.main]]
+  parent = "Connectivity"
+  name = "FastMap"
+  url = "connectivity/fast-map"
+  weight = 4
+
+  [[menu.main]]
+  parent = "Connectivity"
+  name = "FTP"
+  url = "connectivity/ftp"
+  weight = 5
+
+  [[menu.main]]
+  parent = "Connectivity"
+  name = "SFTP"
+  url = "connectivity/sftp"
+  weight = 6
+
+  [[menu.main]]
+  parent = "Connectivity"
+  name = "JSON"
+  url = "connectivity/json"
+  weight = 7
+
+  [[menu.main]]
+  parent = "Connectivity"
+  name = "Spreadsheet files"
+  url = "connectivity/spreadsheet"
+  weight = 8
+
+  [[menu.main]]
+  parent = "Connectivity"
+  name = "SQL database"
+  url = "connectivity/sql"
+  weight = 9
+
+  [[menu.main]]
+   parent = "Connectivity"
+   name = "Sylius"
+   url = "connectivity/sylius"
+   weight = 10
+
+  [[menu.main]]
+   parent = "Connectivity"
+   name = "Prestashop"
+   url = "connectivity/prestashop"
+   weight = 11
+
+  [[menu.main]]
+   parent = "Connectivity"
+   name = "Filtering, drop or reject"
+   url = "connectivity/filtering"
+   weight = 12
+
+  [[menu.main]]
+   parent = "Connectivity"
+   name = "Batch"
+   url = "connectivity/batch"
+   weight = 13
+
+  [[menu.main]]
+   parent = "Connectivity"
+   name = "Magento 2"
+   url = "connectivity/magento-2"
+   weight = 14
+
+  [[menu.main]]
+  parent = "Connectivity"
+  name = "Zoho CRM"
+  url = "connectivity/zoho"
+  weight = 15
+
+[[menu.main]]
+weight = 4
+name = "Cloud"
+hasChildren = true
+
+  [[menu.main]]
+  parent = "Cloud"
+  name = "Usage"
+  url = "cloud/usage"
+  weight = 1
+
+[params]
+logo = "logo-web.svg"
+logo_white = "logo-web.svg"
+primary_color = "#22014f"
+primary_color_lighten = "#f2e9fe"
+secondary_color = "#fe8507"
+dark_color = "#22014f"
+body_color = "#ddd"
+text_color = "#666"
+text_color_dark = "#333"
+text_color_light = "#eee"
+white_color = "#fff"
+light_color = "#eee"
+font_family = "lato"
+
+################################ English Language ######################
+[Languages.en]
+languageName = "English"
+languageCode = "en-us"
+weight = 1
+home = "Home"
+copyright = "The Gyroscops Documentation is copyright © [Gyroscops](https://gyroscops.com/) 2020-2023."
+
+# banner
+[Languages.en.params.banner]
+title = "Gyroscops Documentation"
+subtitle = "Browse the documentation and knowledge base to start quickly with Gyroscops"
+placeholder = "Have a question? Just ask here or enter terms"
+
+# call to action
+[Languages.en.params.cta]
+enable = true
+title = "Didn't find an answer to your question?"
+content = "You can reach our sales team we will find together the best way to provide you support."
+
+# call to action button
+[Languages.en.params.cta.button]
+enable = true
+label = "contact us"
+link = "mailto:sales@gyroscops.com"
+
+# Heading in the home page
+[Languages.en.params.heading]
+enable = true
+title = "A data-centric framework for the cloud"
+content = '''
+A cloud-friendly framework built for synchronizing your applications over the Internet.
+Built to take advantage of the PHP ecosystem.
+
+Build your data flows around APIs, message queues flat files or search engines to make them work
+together smoothly. With integrated reporting and logging, get insights on what is going on and
+keep control.
+'''
+
+################################ French Language ######################
+[Languages.fr]
+languageName = "Français"
+languageCode = "fr-fr"
+weight = 2
+home = "Accueil"
+copyright = "La documentation Gyroscops est copyright © [Gyroscops](https://gyroscops.com/) 2020-2023."
+
+# banner
+[Languages.fr.params.banner]
+title = "Documentation Gyroscops"
+subtitle = "Browse the documentation and knowledge base to start quickly with Gyroscops"
+placeholder = "Have a question? Just ask here or enter terms"
+
+# call to action
+[Languages.fr.params.cta]
+enable = true
+title = "Vous n'avez pas trouvé de réponses à vos questions ?"
+content = "Vous pouvez contacter nos équipes commerciales pour trouver le meilleur moyen pour vous acocmpagner."
+
+# call to action button
+[Languages.fr.params.cta.button]
+enable = true
+label = "contactez-nous"
+link = "mailto:sales@gyroscops.com"
+
+# Heading in the home page
+[Languages.fr.params.heading]
+enable = true
+title = "Un framework pour les flux de données conçu pour le cloud"
+content = '''
+A cloud-friendly framework built for synchronizing your applications over the Internet.
+Built to take advantage of the PHP ecosystem.
+
+Build your data flows around APIs, message queues flat files or search engines to make them work
+together smoothly. With integrated reporting and logging, get insights on what is going on and
+keep control.
+'''

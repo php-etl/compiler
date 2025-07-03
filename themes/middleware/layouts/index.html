@@ -1,0 +1,107 @@
+{{ define "main" }}
+
+  {{ if .Site.Params.heading.enable }}
+  {{ with .Site.Params.heading }}
+  <section class="section">
+    <div class="container">
+      <div class="row">
+        <div class="offset-2 col-8">
+          <div class="section px-3 bg-white shadow text-center">
+          <h2 class="mb-4">{{ .title | markdownify }}</h2>
+          <p class="mb-6">{{ .content | markdownify }}</p>
+            <a href="getting-started" class="btn btn-info"><i class="ti ti-map-alt"></i>&nbsp; Getting started</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {{ end }}
+  {{ end }}
+
+  {{ "<!-- topics -->" | safeHTML }}
+  <section class="section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 text-center">
+          <h2 class="section-title section-dark">{{ i18n "components_title" | safeHTML }}</h2>
+        </div>
+        {{ "<!-- topic-item -->" | safeHTML }}
+        {{ range (where .Site.Pages "Type" "component") }}
+        <div class="col-lg-4 col-sm-6 mb-4">
+          <a href="{{ .Permalink }}" class="hp-push px-4 py-5 bg-white shadow text-center d-block match-height">
+            {{ if .Params.Icon }}
+            <i class="{{ .Params.Icon }} icon text-primary d-block mb-4"></i>
+            {{ end }}
+            {{ if .Params.Logo }}
+            <i class="logo-{{ .Params.Logo }} icon text-primary d-block mb-4">
+              <svg>
+                <use xlink:href="sprites.svg#{{ .Params.Logo }}"></use>
+              </svg>
+            </i>
+            {{ end }}
+            <h3 class="mb-3 mt-0">{{ .Title }}</h3>
+            <p class="mb-0">{{ .Params.Description }}</p>
+          </a>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+  {{ "<!-- /topics -->" | safeHTML }}
+
+  {{ "<!-- topics -->" | safeHTML }}
+  <section class="section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 text-center">
+          <h2 class="section-title section-dark">{{ i18n "plugins_title" | safeHTML }}</h2>
+        </div>
+        {{ "<!-- topic-item -->" | safeHTML }}
+        {{ range (where .Site.Pages "Type" "plugins") }}
+        <div class="col-lg-4 col-sm-6 mb-4">
+          <a href="{{ .Permalink }}" class="hp-push px-4 py-5 bg-white shadow text-center d-block match-height">
+            {{ if .Params.Icon }}
+            <i class="{{ .Params.Icon }} icon text-primary d-block mb-4"></i>
+            {{ end }}
+            {{ if .Params.Logo }}
+            <i class="logo-{{ .Params.Logo }} icon text-primary d-block mb-4">
+              <svg>
+                <use xlink:href="sprites.svg#{{ .Params.Logo }}"></use>
+              </svg>
+            </i>
+            {{ end }}
+            <h3 class="mb-3 mt-0">{{ .Title }}</h3>
+            <p class="mb-0">{{ .Params.Description }}</p>
+          </a>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+  {{ "<!-- /topics -->" | safeHTML }}
+
+  {{ if .Site.Params.cta.enable }}
+  {{ with .Site.Params.cta }}
+  {{ "<!-- call to action -->" | safeHTML }}
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="section px-3 bg-white shadow text-center">
+          <h2 class="mb-4">{{ .title | markdownify }}</h2>
+          <p class="mb-4">{{ .content | markdownify }}</p>
+          {{ if .button.enable }}
+          {{ with .button }}
+          <a href="{{ .link }}" class="btn btn-primary">{{ .label }}</a>
+          {{ end }}
+          {{ end }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {{ "<!-- /call to action -->" | safeHTML }}
+  {{ end }}
+  {{ end }}
+
+{{ end }}

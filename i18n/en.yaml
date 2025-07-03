@@ -1,0 +1,11 @@
+- id: components_title
+  translation: Find your answer by subject
+  
+- id: plugins_title
+  translation: Find the plugin for your data stores
+
+- id: framework_title
+  translation: Developer guide
+
+- id: send
+  translation: Send

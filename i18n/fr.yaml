@@ -1,0 +1,8 @@
+- id: topics_title
+  translation: Trouvez votre réponse par sujet
+
+- id: plugins_title
+  translation: Trouvez votre plugin pour vos entrepôts de données
+  
+- id: send
+  translation: Envoyer
