@@ -1,0 +1,15 @@
+/vendor/
+/.php-cs-fixer.cache
+/bin/json5
+/bin/php-cs-fixer
+/bin/php-parse
+/bin/phpstan
+/bin/phpstan.phar
+/bin/phpunit
+/bin/rector
+/bin/validate-json
+/bin/var-dump-server
+/bin/yaml-lint
+/bin/infection
+/bin/jane
+/bin/jane-openapi
