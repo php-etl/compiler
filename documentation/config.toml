@@ -229,27 +229,33 @@ hasChildren = true
 
   [[menu.main]]
    parent = "Connectivity"
+   name = "Shopify"
+   url = "connectivity/shopify"
+   weight = 12
+
+  [[menu.main]]
+   parent = "Connectivity"
    name = "Filtering, drop or reject"
    url = "connectivity/filtering"
-   weight = 12
+   weight = 13
 
   [[menu.main]]
    parent = "Connectivity"
    name = "Batch"
    url = "connectivity/batch"
-   weight = 13
+   weight = 14
 
   [[menu.main]]
    parent = "Connectivity"
    name = "Magento 2"
    url = "connectivity/magento-2"
-   weight = 14
+   weight = 15
 
   [[menu.main]]
   parent = "Connectivity"
   name = "Zoho CRM"
   url = "connectivity/zoho"
-  weight = 15
+  weight = 16
 
 [[menu.main]]
 weight = 6

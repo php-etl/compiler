@@ -4,10 +4,11 @@ This directory contains all Architecture Decision Records for the Gyroscops Comp
 
 ## ADR Index
 
-| ADR | Title | Status | Date | Next Review |
-|-----|-------|--------|------|-------------|
-| [ADR000](ADR000-adr-management-process.md) | ADR Management Process and Guidelines | Active | 2024-12-19 | 2025-12-19 |
-| [ADR001](ADR001-maintenance-guidelines.md) | Gyroscops Compiler Architecture and Maintenance Guidelines | Active | 2024-12-19 | 2025-03-19 |
+| ADR                                              | Title                                                      | Status | Date       | Next Review |
+|--------------------------------------------------|------------------------------------------------------------|--------|------------|-------------|
+| [ADR000](ADR000-adr-management-process.md)       | ADR Management Process and Guidelines                      | Active | 2024-12-19 | 2025-12-19  |
+| [ADR001](ADR001-maintenance-guidelines.md)       | Gyroscops Compiler Architecture and Maintenance Guidelines | Active | 2024-12-19 | 2025-03-19  |
+| [ADR002](ADR002-plugin-architecture-patterns.md) | Plugin Architecture Patterns and Implementation Approaches | Active | 2024-12-19 | 2025-06-19  |
 
 ## Quick Reference
 
@@ -98,5 +99,5 @@ This directory contains all Architecture Decision Records for the Gyroscops Comp
 
 ---
 
-**Last Updated:** 2024-12-19  
+**Last Updated:** 2025-07-03  
 **Maintainer:** Development Team
