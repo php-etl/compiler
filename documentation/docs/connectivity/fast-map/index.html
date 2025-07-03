@@ -1,0 +1,1732 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta charset="utf-8">
+  <title>Fast Map  | Gyroscops Documentation</title>
+
+  <meta name="generator" content="Hugo 0.121.2">
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- ** Plugins Needed for the Project ** -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://php-etl.github.io/documentation/plugins/bootstrap/bootstrap.min.css">
+
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="https://php-etl.github.io/documentation/plugins/themify-icons/themify-icons.css">
+
+  <!-- highlight -->
+  <link rel="stylesheet" href="https://php-etl.github.io/documentation/plugins/highlight/hybrid.css">
+
+  <!--Favicon-->
+  <link rel="icon" href="https://php-etl.github.io/documentation/favicon.png" type="image/x-icon">
+
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+  <style>
+  :root{
+    --primary-color: #22014f;
+    --primary-color-lighten: #f2e9fe;
+    --secondary-color:#fe8507;
+    --body-color:#ddd;
+    --text-color:#666;
+    --text-color-dark:#333;
+    --text-color-light:#eee;
+    --white-color:#fff;
+    --light-color:#eee;
+    --font-family:Lato;
+  }
+  </style>
+
+<!-- Main Stylesheet -->
+
+<link href="https://php-etl.github.io/documentation/css/style.min.css" rel="stylesheet" media="screen"/>
+
+<!-- jquiry -->
+<script src="https://php-etl.github.io/documentation/plugins/jquery/jquery-1.12.4.js"></script>
+
+<!-- jquary ui -->
+<script src="https://php-etl.github.io/documentation/plugins/jquery/jquery-ui.js"></script>
+
+<!-- Bootstrap JS -->
+<script src="https://php-etl.github.io/documentation/plugins/bootstrap/bootstrap.min.js"></script>
+
+<!-- match-height JS -->
+<script src="https://php-etl.github.io/documentation/plugins/match-height/jquery.matchHeight-min.js"></script>
+
+<!-- highlight -->
+<script src="https://php-etl.github.io/documentation/plugins/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+</head>
+
+
+  <body>
+    
+    <!-- header -->
+    <header class="sticky-top bg-gradient">
+      <nav class="navbar navbar-expand-md bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/documentation">
+      
+      
+      
+      
+      <div class="navbar-brand">
+        <img class="img-fluid" src="https://php-etl.github.io/documentation/logo-web.svg" alt="Gyroscops"><span class="navbar-logo"> Gyroscops</span>
+      </div>
+      
+      
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation"
+      aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse text-center" id="navigation">
+      <ul class="navbar-nav ml-auto">
+        
+        
+        <li class="nav-item dropdown">
+          <span class="nav-link dropdown-toggle text-dark" href="#" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Getting Started
+          </span>
+          <div class="dropdown-menu">
+            
+            <a class="dropdown-item" href="/documentation/getting-started/environment-setup">Environment Setup</a>
+            
+            <a class="dropdown-item" href="/documentation/getting-started/installation">Installation</a>
+            
+            <a class="dropdown-item" href="/documentation/getting-started/writing-configuration">Writing Configuration</a>
+            
+            <a class="dropdown-item" href="/documentation/getting-started/compilation">Compilation</a>
+            
+            <a class="dropdown-item" href="/documentation/getting-started/execution">Execution</a>
+            
+          </div>
+        </li>
+        
+        
+        
+        <li class="nav-item dropdown">
+          <span class="nav-link dropdown-toggle text-dark" href="#" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Core concepts
+          </span>
+          <div class="dropdown-menu">
+            
+            <a class="dropdown-item" href="/documentation/core-concept/satellite">Satellites</a>
+            
+            <a class="dropdown-item" href="/documentation/core-concept/satellite/pipeline">Pipeline</a>
+            
+            <a class="dropdown-item" href="/documentation/core-concept/satellite/workflow">Workflow</a>
+            
+            <a class="dropdown-item" href="/documentation/core-concept/satellite/http-hook">HTTP Hook</a>
+            
+            <a class="dropdown-item" href="/documentation/core-concept/satellite/http-api">HTTP API</a>
+            
+            <a class="dropdown-item" href="/documentation/core-concept/satellite/action">Action</a>
+            
+          </div>
+        </li>
+        
+        
+        
+        <li class="nav-item dropdown">
+          <span class="nav-link dropdown-toggle text-dark" href="#" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Connectivity
+          </span>
+          <div class="dropdown-menu">
+            
+            <a class="dropdown-item" href="/documentation/connectivity/akeneo">Akeneo</a>
+            
+            <a class="dropdown-item" href="/documentation/connectivity/csv">CSV files</a>
+            
+            <a class="dropdown-item" href="/documentation/connectivity/custom">Custom connector</a>
+            
+            <a class="dropdown-item" href="/documentation/connectivity/fast-map">FastMap</a>
+            
+            <a class="dropdown-item" href="/documentation/connectivity/ftp">FTP</a>
+            
+            <a class="dropdown-item" href="/documentation/connectivity/sftp">SFTP</a>
+            
+            <a class="dropdown-item" href="/documentation/connectivity/json">JSON</a>
+            
+            <a class="dropdown-item" href="/documentation/connectivity/spreadsheet">Spreadsheet files</a>
+            
+            <a class="dropdown-item" href="/documentation/connectivity/sql">SQL database</a>
+            
+            <a class="dropdown-item" href="/documentation/connectivity/sylius">Sylius</a>
+            
+            <a class="dropdown-item" href="/documentation/connectivity/prestashop">Prestashop</a>
+            
+            <a class="dropdown-item" href="/documentation/connectivity/filtering">Filtering, drop or reject</a>
+            
+            <a class="dropdown-item" href="/documentation/connectivity/batch">Batch</a>
+            
+            <a class="dropdown-item" href="/documentation/connectivity/magento-2">Magento 2</a>
+            
+            <a class="dropdown-item" href="/documentation/connectivity/zoho">Zoho CRM</a>
+            
+          </div>
+        </li>
+        
+        
+        
+        <li class="nav-item dropdown">
+          <span class="nav-link dropdown-toggle text-dark" href="#" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Features
+          </span>
+          <div class="dropdown-menu">
+            
+            <a class="dropdown-item" href="/documentation/feature/services">Declaring services</a>
+            
+            <a class="dropdown-item" href="/documentation/feature/expression-language">Expression Language</a>
+            
+            <a class="dropdown-item" href="/documentation/feature/logger">Logging</a>
+            
+            <a class="dropdown-item" href="/documentation/feature/rejection">Rejection</a>
+            
+            <a class="dropdown-item" href="/documentation/feature/state">State</a>
+            
+          </div>
+        </li>
+        
+        
+        
+        <li class="nav-item dropdown">
+          <span class="nav-link dropdown-toggle text-dark" href="#" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Cloud
+          </span>
+          <div class="dropdown-menu">
+            
+            <a class="dropdown-item" href="/documentation/cloud/usage">Usage</a>
+            
+          </div>
+        </li>
+        
+        
+      </ul>
+      
+    </div>
+  </div>
+</nav>
+
+    </header>
+    <!-- /header -->
+    
+    
+
+<!-- details page -->
+<section class="single section-sm pb-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="sidebar">
+          <ul class="list-styled">
+            
+            <a class="back-btn" href="/documentation"></a>
+            
+              
+            
+              
+            
+              
+              
+
+
+
+
+
+
+
+
+<li data-nav-id="https://php-etl.github.io/documentation/connectivity/" title="Connectivities" class="sidelist
+  ">
+  <a href="https://php-etl.github.io/documentation/connectivity/">
+    Connectivities
+  </a>
+  
+  
+    <ul>
+      
+        
+          
+
+
+
+
+
+
+
+
+<li data-nav-id="https://php-etl.github.io/documentation/connectivity/akeneo/" title="Akeneo" class="sidelist
+  ">
+  <a href="https://php-etl.github.io/documentation/connectivity/akeneo/">
+    Akeneo
+  </a>
+  
+  
+    <ul>
+      
+        
+          
+
+
+
+
+
+
+
+
+<li data-nav-id="https://php-etl.github.io/documentation/connectivity/akeneo/plugin/" title="Akeneo plugin" class="sidelist
+  ">
+  <a href="https://php-etl.github.io/documentation/connectivity/akeneo/plugin/">
+    Akeneo plugin
+  </a>
+  
+  
+</li>
+
+
+        
+      
+        
+          
+
+
+
+
+
+
+
+
+<li data-nav-id="https://php-etl.github.io/documentation/connectivity/akeneo/expression-language/" title="Akeneo expression language functions" class="sidelist
+  ">
+  <a href="https://php-etl.github.io/documentation/connectivity/akeneo/expression-language/">
+    Akeneo expression language functions
+  </a>
+  
+  
+</li>
+
+
+        
+      
+    </ul>
+  
+</li>
+
+
+        
+      
+        
+          
+
+
+
+
+
+
+
+
+<li data-nav-id="https://php-etl.github.io/documentation/connectivity/magento-2/" title="Magento 2" class="sidelist
+  ">
+  <a href="https://php-etl.github.io/documentation/connectivity/magento-2/">
+    Magento 2
+  </a>
+  
+  
+</li>
+
+
+        
+      
+        
+          
+
+
+
+
+
+
+
+
+<li data-nav-id="https://php-etl.github.io/documentation/connectivity/csv/" title="CSV" class="sidelist
+  ">
+  <a href="https://php-etl.github.io/documentation/connectivity/csv/">
+    CSV
+  </a>
+  
+  
+</li>
+
+
+        
+      
+        
+          
+
+
+
+
+
+
+
+
+<li data-nav-id="https://php-etl.github.io/documentation/connectivity/custom/" title="Custom connector" class="sidelist
+  ">
+  <a href="https://php-etl.github.io/documentation/connectivity/custom/">
+    Custom connector
+  </a>
+  
+  
+    <ul>
+      
+        
+          
+
+
+
+
+
+
+
+
+<li data-nav-id="https://php-etl.github.io/documentation/connectivity/custom/lookup_mapper/" title="Lookup mapper" class="sidelist
+  ">
+  <a href="https://php-etl.github.io/documentation/connectivity/custom/lookup_mapper/">
+    Lookup mapper
+  </a>
+  
+  
+</li>
+
+
+        
+      
+    </ul>
+  
+</li>
+
+
+        
+      
+        
+          
+
+
+
+
+
+
+
+
+<li data-nav-id="https://php-etl.github.io/documentation/connectivity/fast-map/" title="Fast Map" class="sidelist
+  active">
+  <a href="https://php-etl.github.io/documentation/connectivity/fast-map/">
+    Fast Map
+  </a>
+  
+  
+</li>
+
+
+        
+      
+        
+          
+
+
+
+
+
+
+
+
+<li data-nav-id="https://php-etl.github.io/documentation/connectivity/zoho/" title="Zoho CRM" class="sidelist
+  ">
+  <a href="https://php-etl.github.io/documentation/connectivity/zoho/">
+    Zoho CRM
+  </a>
+  
+  
+</li>
+
+
+        
+      
+        
+          
+
+
+
+
+
+
+
+
+<li data-nav-id="https://php-etl.github.io/documentation/connectivity/ftp/" title="FTP" class="sidelist
+  ">
+  <a href="https://php-etl.github.io/documentation/connectivity/ftp/">
+    FTP
+  </a>
+  
+  
+</li>
+
+
+        
+      
+        
+          
+
+
+
+
+
+
+
+
+<li data-nav-id="https://php-etl.github.io/documentation/connectivity/sftp/" title="SFTP" class="sidelist
+  ">
+  <a href="https://php-etl.github.io/documentation/connectivity/sftp/">
+    SFTP
+  </a>
+  
+  
+</li>
+
+
+        
+      
+        
+          
+
+
+
+
+
+
+
+
+<li data-nav-id="https://php-etl.github.io/documentation/connectivity/json/" title="JSON" class="sidelist
+  ">
+  <a href="https://php-etl.github.io/documentation/connectivity/json/">
+    JSON
+  </a>
+  
+  
+</li>
+
+
+        
+      
+        
+          
+
+
+
+
+
+
+
+
+<li data-nav-id="https://php-etl.github.io/documentation/connectivity/spreadsheet/" title="Spreadsheet" class="sidelist
+  ">
+  <a href="https://php-etl.github.io/documentation/connectivity/spreadsheet/">
+    Spreadsheet
+  </a>
+  
+  
+</li>
+
+
+        
+      
+        
+          
+
+
+
+
+
+
+
+
+<li data-nav-id="https://php-etl.github.io/documentation/connectivity/sql/" title="SQL" class="sidelist
+  ">
+  <a href="https://php-etl.github.io/documentation/connectivity/sql/">
+    SQL
+  </a>
+  
+  
+</li>
+
+
+        
+      
+        
+          
+
+
+
+
+
+
+
+
+<li data-nav-id="https://php-etl.github.io/documentation/connectivity/sylius/" title="Sylius" class="sidelist
+  ">
+  <a href="https://php-etl.github.io/documentation/connectivity/sylius/">
+    Sylius
+  </a>
+  
+  
+</li>
+
+
+        
+      
+        
+          
+
+
+
+
+
+
+
+
+<li data-nav-id="https://php-etl.github.io/documentation/connectivity/prestashop/" title="Prestashop" class="sidelist
+  ">
+  <a href="https://php-etl.github.io/documentation/connectivity/prestashop/">
+    Prestashop
+  </a>
+  
+  
+</li>
+
+
+        
+      
+        
+          
+
+
+
+
+
+
+
+
+<li data-nav-id="https://php-etl.github.io/documentation/connectivity/filtering/" title="Filtering, drop or reject" class="sidelist
+  ">
+  <a href="https://php-etl.github.io/documentation/connectivity/filtering/">
+    Filtering, drop or reject
+  </a>
+  
+  
+</li>
+
+
+        
+      
+        
+          
+
+
+
+
+
+
+
+
+<li data-nav-id="https://php-etl.github.io/documentation/connectivity/batch/" title="Batch" class="sidelist
+  ">
+  <a href="https://php-etl.github.io/documentation/connectivity/batch/">
+    Batch
+  </a>
+  
+  
+</li>
+
+
+        
+      
+    </ul>
+  
+</li>
+
+
+              
+            
+              
+            
+              
+            
+              
+            
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-9">
+        <div class="p-lg-5 p-4">
+          <h1 class="single-title mb-5">
+              
+              
+              <i class="logo-fastmap icon d-block">
+                  <svg>
+                      <use xlink:href="https://php-etl.github.io/documentation/sprites.svg#fastmap"></use>
+                  </svg>
+              </i>
+              
+              Fast Map
+          </h1>
+          
+          <div class="content">
+
+
+
+
+<div style="margin-top: 10px; margin-bottom: 10px;">
+<b>FEATURE STATE:</b> <code>Gyroscops 0.1 [alpha]</code>
+</div>
+
+
+<ul>
+<li><a href="#what-is-it-">What is it ?</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#usage">Usage</a>
+<ul>
+<li><a href="#building-an-arraymapper">Building an ArrayMapper</a></li>
+<li><a href="#building-a-listmapper">Building a ListMapper</a></li>
+<li><a href="#building-a-collectionmapper">Building a CollectionMapper</a></li>
+<li><a href="#building-an-objectmapper">Building an ObjectMapper</a></li>
+<li><a href="#building-a-conditionalmapper">Building a ConditionalMapper</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<blockquote>
+<p>A mapping is an operation that associates each element of a source of data into
+a new format of the same data. By this operation, it is possible to transform
+the way the data is represented.</p>
+</blockquote>
+<p><img src="fastmap.svg" alt="Fastmap schema"></p>
+<h2 id="what-is-it-">What is it ?</h2>
+<p>The FastMap plugin aims at integrating mappers into the <a href="https://github.com/php-etl/pipeline">Pipeline</a> stack.</p>
+<p>FastMap Plugin consists of two components, each with a different purpose.</p>
+<h3 id="the-php-etlfast-map-component">The <code>php-etl/fast-map</code> component</h3>
+<p>This component is in charge of representing the Abstract Mapping Tree, and transforming
+it into compiled PHP code. This compiled PHP code is the actual code that will do the
+mapping, in an optimized way.</p>
+<h4 id="abstract-mapping-tree">Abstract Mapping Tree</h4>
+<p>The <em>abstract mapping tree</em> is a representation of the mapping to apply to your
+data, in order to transform its representation. It is an internal representation
+build for a computer to understand how it will have to change the data representation
+during the mapping operation.</p>
+<h3 id="the-php-etlfast-map-config-component">The <code>php-etl/fast-map-config</code> component</h3>
+<p>This component allows you to configure your mapper according to the type of data you want to input.</p>
+<p>If you need to config your mappers, we advise you to use the yml config which will generate a php code usable by the fast-map-config.
+This code will then be converted into a machine code that can be used by the fast map package.</p>
+<h2 id="installation">Installation</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>composer require php-etl/fast-map-plugin:<span style="color:#e6db74">&#39;*&#39;</span>
+</span></span></code></pre></div><h2 id="usage">Usage</h2>
+<h3 id="building-an-arraymapper">Building an ArrayMapper</h3>
+<p>To write a mapping to an array, you must use the `map option.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">fastmap</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">append</span>: <span style="color:#66d9ef">true</span> <span style="color:#75715e"># Optional. Merges this step&#39;s output into the previous step&#39;s result.</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">map</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># ...</span>
+</span></span></code></pre></div><p>Next, you need to specify the field you are going to map to and assign a value to it.</p>
+<p>The <code>field</code> option is based on the <a href="https://symfony.com/doc/current/components/property_access.html">PropertyAccess</a>
+component of Symfony. You must therefore respect this <code>[field_name]</code> naming format.</p>
+<p>To assign a value to your field, you can choose between several options :</p>
+<h4 id="simple-options">Simple options</h4>
+<ul>
+<li><code>copy</code> : This option also uses the PropertyAccess component of Symfony and allows you to retrieve a value from an array
+and copy it.</li>
+<li><code>expression</code> : This expression uses the <a href="https://symfony.com/doc/current/components/expression_language.html">Expressionlanguage</a> component of Symfony
+component and allows you to write your own expressions.</li>
+<li><code>constant</code> : This option allows you to write directly the value of your field</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">fastmap</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">map</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">field</span>: <span style="color:#e6db74">&#39;[sku]&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">copy</span>: <span style="color:#e6db74">&#39;[sku]&#39;</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">field</span>: <span style="color:#e6db74">&#39;[title]&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">expression</span>: <span style="color:#e6db74">&#39;input[&#34;sku&#34;] ~&#34; | &#34;~ input[&#34;name&#34;]&#39;</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">field</span>: <span style="color:#e6db74">&#39;[staticValue]&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">constant</span>: <span style="color:#e6db74">&#39;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur mollis efficitur justo, id facilisis elit venenatis et.&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># ...</span>
+</span></span></code></pre></div><h4 id="advanced-options">Advanced options</h4>
+<ul>
+<li><code>map</code> : <a href="#building-an-arraymapper">see the configuration</a></li>
+<li><code>list</code> : <a href="#building-a-listmapper">see the configuration</a></li>
+<li><code>collection</code> : <a href="#building-a-collectionmapper">see the configuration</a></li>
+<li><code>object</code> : <a href="#building-an-objectmapper">see the configuration</a></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">fastmap</span>: 
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">map</span>: 
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">field</span>: <span style="color:#e6db74">&#39;[foo]&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">expression</span>: <span style="color:#e6db74">&#39;input&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">map</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">field</span>: <span style="color:#e6db74">&#39;[bar]&#39;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">copy</span>: <span style="color:#e6db74">&#39;[bar]&#39;</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">field</span>: <span style="color:#e6db74">&#39;[foo]&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">expression</span>: <span style="color:#e6db74">&#39;input&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">list</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">field</span>: <span style="color:#e6db74">&#39;[bar]&#39;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">copy</span>: <span style="color:#e6db74">&#39;[bar]&#39;</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">field</span>: <span style="color:#e6db74">&#39;[descriptions]&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">class</span>: <span style="color:#e6db74">&#39;Pipeline\Usage&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">expression</span>: <span style="color:#e6db74">&#39;input[&#34;foo&#34;]&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">object</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">field</span>: <span style="color:#e6db74">&#39;usage&#39;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">expression</span>: <span style="color:#e6db74">&#39;&#34;Usage: &#34; ~ input[&#34;usage&#34;]&#39;</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">field</span>: <span style="color:#e6db74">&#39;warning&#39;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">copy</span>: <span style="color:#e6db74">&#39;[warning]&#39;</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">field</span>: <span style="color:#e6db74">&#39;notice&#39;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">copy</span>: <span style="color:#e6db74">&#39;[notice]&#39;</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">field</span>: <span style="color:#e6db74">&#39;[messages]&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">class</span>: <span style="color:#e6db74">&#39;Foo\DTO\Messages&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">expression</span>: <span style="color:#e6db74">&#39;input&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">collection</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">field</span>: <span style="color:#e6db74">&#39;usage&#39;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">expression</span>: <span style="color:#e6db74">&#39;&#34;Usage: &#34; ~ input[&#34;usage&#34;]&#39;</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">field</span>: <span style="color:#e6db74">&#39;warning&#39;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">copy</span>: <span style="color:#e6db74">&#39;[warning]&#39;</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">field</span>: <span style="color:#e6db74">&#39;notice&#39;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">copy</span>: <span style="color:#e6db74">&#39;[notice]&#39;</span>
+</span></span></code></pre></div><h3 id="building-a-listmapper">Building a ListMapper</h3>
+<p>To write a mapping to a list, you must use the <code>list</code> option, which will always be accompanied by
+the <code>expression</code> option.</p>
+<ul>
+<li><code>expression</code> : allows you to write an expression which will be used in the mapping.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">fastmap</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">expression</span>: <span style="color:#e6db74">&#39;input&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">list</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">field</span>: <span style="color:#e6db74">&#39;[bar]&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">copy</span>: <span style="color:#e6db74">&#39;[bar]&#39;</span>
+</span></span></code></pre></div><h3 id="building-a-collectionmapper">Building a CollectionMapper</h3>
+<p>To write a mapping to a collection of objects, you must use the <code>collection</code> option, which will always be accompanied
+by the <code>class</code> and <code>expression</code> options.</p>
+<ul>
+<li><code>class</code> : determines the class to use in the mapping.</li>
+<li><code>expression</code> : allows you to write an expression which will be used in the mapping.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">fastmap</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">class</span>: <span style="color:#e6db74">&#39;Foo\DTO\Messages&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">expression</span>: <span style="color:#e6db74">&#39;input&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">collection</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">field</span>: <span style="color:#e6db74">&#39;usage&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">expression</span>: <span style="color:#e6db74">&#39;&#34;Usage: &#34; ~ input[&#34;usage&#34;]&#39;</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">field</span>: <span style="color:#e6db74">&#39;warning&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">copy</span>: <span style="color:#e6db74">&#39;[warning]&#39;</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">field</span>: <span style="color:#e6db74">&#39;notice&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">copy</span>: <span style="color:#e6db74">&#39;[notice]&#39;</span>
+</span></span></code></pre></div><p>Warning: Unlike an ArrayMapper, here the field must not be between <code>[...]</code>.</p>
+<p>See <a href="https://symfony.com/doc/current/components/property_access.html#reading-from-objects">Reading from objects</a>.</p>
+<h3 id="building-an-objectmapper">Building an ObjectMapper</h3>
+<p>To write a mapping to an object, you must use the <code>object</code> option, which will always be accompanied by the
+options <code>class</code> and <code>expression</code>.</p>
+<ul>
+<li><code>class</code> : determines the class to be used in the mapping.</li>
+<li><code>expression</code> : allows you to write an expression that will be used in the mapping.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">fastmap</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">class</span>: <span style="color:#e6db74">&#39;Foo\DTO\Product&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">expression</span>: <span style="color:#e6db74">&#39;input&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">object</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">field</span>: <span style="color:#e6db74">&#39;sku&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">copy</span>: <span style="color:#e6db74">&#39;[sku]&#39;</span>
+</span></span></code></pre></div><p>Warning: Unlike an ArrayMapper, here the <code>field</code> must not be between <code>[...]</code>.</p>
+<p>See <a href="https://symfony.com/doc/current/components/property_access.html#reading-from-objects">Reading from objects</a>.</p>
+<h3 id="building-a-conditionalmapper">Building a ConditionalMapper</h3>
+<p>To write a list of mappers that will only execute if a condition is met, you must use the <code>conditional</code> option,
+under which you can declare multiple <a href="#building-an-arraymapper">Array</a> (<code>map</code>) or <a href="#building-an-objectmapper">Object</a> (<code>object</code>) mappers,
+each protected by a <code>condition</code>.</p>
+<p>The behaviour is similar to <code>if ... else if ...</code>, meaning <strong>only 1 of the mappers will be executed</strong>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">fastmap</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">conditional</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">condition</span>: <span style="color:#e6db74">&#39;keyExists(&#34;sku&#34;, input)&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">append</span>: <span style="color:#66d9ef">true</span> <span style="color:#75715e"># Optional. Merges this step&#39;s output into the previous step&#39;s result.</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">map</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># ...</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">condition</span>: <span style="color:#e6db74">&#39;keyExists(&#34;identifier&#34;, input)&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">append</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">object</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># ...</span>
+</span></span></code></pre></div></div>
+          
+          <p class="post-meta border-bottom pb-3 mb-0 mt-3">Updated on 12 Jul 2020</p>
+          <nav class="pagination mt-3">
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            <a class="nav nav-prev" href="https://php-etl.github.io/documentation/connectivity/custom/lookup_mapper/"><i class="ti-arrow-left mr-2"></i> <span class="d-none d-md-block">Lookup mapper</span></a>
+            
+            
+            <a class="nav nav-next" href="https://php-etl.github.io/documentation/connectivity/zoho/"> <span class="d-none d-md-block">Zoho CRM</span><i class="ti-arrow-right ml-2"></i></a>
+            
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /details page -->
+
+
+
+
+
+
+    <!-- footer -->
+<footer class="section pb-4">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-8 text-md-left text-center">
+       <p class="mb-md-0 mb-4"></p>
+      </div>
+      <div class="col-md-4 text-md-right text-center">
+        <ul class="list-inline">
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- /footer -->
+
+<!-- Main Script -->
+
+<script src="https://php-etl.github.io/documentation/js/script.min.js"></script>
+  </body>
+
+</html>
