@@ -1,0 +1,44 @@
+{
+    "name": "php-etl/gyroscops-api-client",
+    "description": "This package provides Jane-PHP generated API models and client based on the OpenAPI specification.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kiboko SAS",
+            "homepage": "http://kiboko.fr"
+        },
+        {
+            "name": "Grégory Planchat",
+            "email": "gregory@kiboko.fr"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": "^8.2",
+        "jane-php/open-api-runtime": "^7.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Gyroscops\\Api\\": "src/"
+        }
+    },
+    "require-dev": {
+        "jane-php/open-api-3": "^7.4",
+        "friendsofphp/php-cs-fixer": "^3.38",
+        "rector/rector": "^0.15"
+    },
+    "config": {
+        "bin-dir": "bin",
+        "allow-plugins": {
+            "infection/extension-installer": true,
+            "php-http/discovery": true
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "0.3.x-dev"
+        }
+    }
+}
